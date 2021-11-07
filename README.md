@@ -12,7 +12,7 @@ You should be able to give your own preamble if needed
 typora2tex mymarkdown.md --preamble=mypreamble.tex
 ```
 
-You should be able to give your own preamble if needed
+You should be able to give the name of a default preamble if needed
 ```bash
 typora2tex mymarkdown.md --preamble="some default known preamble"
 ```
@@ -23,3 +23,9 @@ I'll focus on a limited set of features important to me. It should be able to ch
 - bullet points to `\begin{itemize} ... \end{itemize}`
 - numbered points to `\begin{enumerate} ... \end{enumerate}`
 - dragged and dropped figures into `\includegraphics{..../..}`
+- ` `` ` marks will become inline `\texttt{...}`for now. 
+
+##### Future features:
+
+- multiline code blocks for Julia, python, C++ and bash
+
