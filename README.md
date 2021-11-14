@@ -17,6 +17,7 @@ I'll focus on a limited set of features important to me. It should be able to ch
 
 - `#` to the appropriate `\section{header}`
 - bullet points to `\begin{itemize} ... \end{itemize}`
+- Convert all Tables `|A | B|...` into `\begin{longtable} ... \end{longtable}`, (we allow `pandoc` to do it since it's smart when it comes to making tables fit in the page)
 - dragged and dropped figures into `\includegraphics{..../..}`
 - ` `` ` marks will become inline `\texttt{...}`for now. 
 
