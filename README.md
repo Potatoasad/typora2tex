@@ -37,12 +37,12 @@ chmod +x compile.sh #if not already an executable
 ./compile.sh
 ```
 
-As a result you'll have a folder called `typora2tex-compiled` which will contain the `typora2tex` binary. 
+As a result you'll have a folder at the same level of the git repo you just downloaded called `typora2tex-compiled` which will contain the `typora2tex` binary. 
 
 Go to that folder and copy that binary to `/usr/bin/` or `/usr/local/bin` (just any directory in your path) by:
 
 ```bash
-mv typora2tex /usr/local/bin
+mv typora2tex /usr/local/bin/typora2tex
 ```
 
 Then you can execute it from anywhere in your computer:
