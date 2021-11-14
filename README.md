@@ -28,7 +28,28 @@ I'll focus on a limited set of features important to me. It should be able to ch
 
 ## How to install
 
+Clone the repo, activate the compile script and execute it. 
 
+```bash
+git clone https://github.com/Potatoasad/typora2tex
+cd typora2tex
+chmod +x compile.sh #if not already an executable
+./compile.sh
+```
+
+As a result you'll have a folder called `typora2tex-compiled` which will contain the `typora2tex` binary. 
+
+Go to that folder and copy that binary to `/usr/bin/` or `/usr/local/bin` (just any directory in your path) by:
+
+```bash
+mv typora2tex /usr/local/bin
+```
+
+Then you can execute it from anywhere in your computer:
+
+```bash
+typora2tex --help
+```
 
 ## Options
 
