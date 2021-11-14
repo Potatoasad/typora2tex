@@ -21,3 +21,12 @@ So we can start counting
 - Faewa `cat`
 
 ![test-pic](./test-pic.svg)
+
+We can then also add tables
+
+| Name        | Symbol | Description                                                  |
+| ----------- | ------ | ------------------------------------------------------------ |
+| Potato      | $P$    | It is a potato                                               |
+| Point       | $x$    | A coordinate description of a point given by $x$             |
+| not a point | $l$    | This is not a point. But this has quite the long description, it might not even fit, but I think pandoc handles it fine, no issues. `pandoc` has a good system for making sure the column sizes make sense and we just use python's `subprocess` module to get pandoc to work. |
+
