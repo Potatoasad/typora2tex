@@ -40,7 +40,7 @@ typora2tex mymarkdown.md -o ./path/to/final.tex
 ```
 
 ```bash
-typora2tex mymarkdown.md --outputfile=./path/to/final.tex 		#or as an optional parameter
+typora2tex mymarkdown.md --outputfile=./path/to/final.tex  #or as an optional parameter
 ```
 
 #### Templates
