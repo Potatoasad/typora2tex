@@ -42,7 +42,7 @@ As a result you'll have a folder at the same level of the git repo you just down
 Go to that folder and copy that binary to `/usr/bin/` or `/usr/local/bin` (just any directory in your path) by:
 
 ```bash
-mv typora2tex /usr/local/bin/typora2tex
+sudo mv typora2tex /usr/local/bin/typora2tex
 ```
 
 Then you can execute it from anywhere in your computer:

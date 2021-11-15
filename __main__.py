@@ -23,8 +23,8 @@ def main():
 	"""
 
 	parser = argparse.ArgumentParser(description='Convert Typora Markdown files to LaTeX')
-	parser.add_argument('filename', metavar='filename', type=str,
-	                    help='the path to / name of the markdown file')
+	parser.add_argument('filename', nargs='?',metavar='filename', type=str,
+	                    help='the path to / name of the markdown file',default="THE_DEFAULT")
 	parser.add_argument("-o","--outputfile", dest='outputfile',default="THE_DEFAULT",
 	                    help='sets the output file name and/or path)')
 	parser.add_argument("-a","--author", dest='author',default="Asad Hussain",
@@ -57,6 +57,7 @@ def main():
 
 	#### USING IT TO GET THE MARKDOWN FILE
 
+	"""
 	if outputfile == "THE_DEFAULT":
 		if len(inputfile.split(r"/")) > 1:
 			outputfile = inputfile.split(r"/")
@@ -64,10 +65,20 @@ def main():
 			outputfile = r"/".join(outputfile)
 		else:
 			outputfile = r"./output.tex"
+	"""
 
-	file = open(inputfile)
-	input_string = file.read()
-	file.close()
+	if inputfile == "THE_DEFAULT":
+		inputfile = r'tests/test.md'
+		input_string = pkg_resources.resource_string(__name__, inputfile).decode("ascii")
+	else:
+		file = open(inputfile)
+		input_string = file.read()
+		file.close()
+
+	if outputfile == "THE_DEFAULT":
+		outputfile = inputfile.replace(".md",".tex")
+		if args.filename == "THE_DEFAULT":
+			outputfile = "./test.tex"
 
 	if (len(templatefile.split(".")) > 1) and (templatefile.split(".")[1] == "tex"):
 		file = open(templatefile)
@@ -80,7 +91,11 @@ def main():
 	#### CONVERTING THE DOCUMENT
 
 	### FIND TITLE
-	title = input_string.strip().split("#")[1].splitlines()[0].strip()
+	prototitle = input_string.strip().split("#")
+	if len(prototitle) > 1:
+		title = input_string.strip().split("#")[1].splitlines()[0].strip()
+	else:
+		title = "insert title"
 
 	### TABLES
 	Table = TableConverter();
