@@ -3,7 +3,7 @@ import re
 MAX_HEADINGS = 5
 HEADINGS = [r"\section{thetext}",
 			r"\subsection{thetext}",
-			r"\subsubection{thetext}",
+			r"\subsubsection{thetext}",
 			r"\paragraph{thetext}",
 			r"\subparagraph{thetext}"]
 
@@ -16,7 +16,7 @@ def heading_replacer(md_snippet):
 		is_a_heading = re.match(r"^#+\ ", line)
 		if is_a_heading:
 			thestuff = line.split("#")
-			headingind = min(0, len(thestuff[0:-1])-1 , MAX_HEADINGS-1)
+			headingind = max(0, min(len(thestuff[0:-1])-1 , MAX_HEADINGS-1))
 			thetext = thestuff[-1].strip()
 			finallines.append(HEADINGS[headingind].replace("thetext",thetext))
 		else:

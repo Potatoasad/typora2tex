@@ -14,7 +14,7 @@ def inkscape_convert_svg_to_eps(imagepath):
 def images_replacer(md_snippet):
 	thelines = md_snippet.splitlines()
 
-	include_mod = r"[width=\textwidth,height=\textheight,keepaspectratio]"
+	include_mod = r"[width=0.5\textwidth,keepaspectratio]"
 
 	finallines = []
 	for i,line in enumerate(thelines):
@@ -25,9 +25,9 @@ def images_replacer(md_snippet):
 			imagepath = line.split("](")[1].split(")")[0]
 			imagepath = imagepath.replace(".svg",".eps")
 			finallines.append(r"\begin{figure}[h]")
+			finallines.append(r"\centering")
 			finallines.append(r"\includegraphics"+include_mod+"{" + imagepath + r"}")
 			finallines.append(r"\caption{" + imagename + r"}")
-			finallines.append(r"\centering")
 			finallines.append(r"\end{figure}")
 		else:
 			finallines.append(line)

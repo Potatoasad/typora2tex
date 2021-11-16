@@ -8,6 +8,8 @@ from itemlist import *
 from multiline_equations import *
 from headings import *
 from images import *
+from bold import *
+from post_process import *
 
 def main():
 	cwd = os.getcwd()
@@ -97,6 +99,9 @@ def main():
 	else:
 		title = "insert title"
 
+
+	### BOLD
+
 	### TABLES
 	Table = TableConverter();
 
@@ -116,6 +121,12 @@ def main():
 
 	### IMAGES
 	output = images_replacer(output)
+
+	### INLINE BOLD
+	output = total_inline_bold_replacer(output)
+
+	### POST PROCESS
+	output = post_process(output)
 
 	latex_template = latex_template.replace("THE_TITLE",title)
 	latex_template = latex_template.replace("THE_AUTHOR","Asad Hussain")
